@@ -1,0 +1,5 @@
+-sv
+-linedebug
+-access +rwc
+-gui
+rtl/*.sv

@@ -1,0 +1,4 @@
+-access rwc
+-sv
+-gui
+rtl/*.sv
