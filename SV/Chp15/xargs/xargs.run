@@ -1,0 +1,7 @@
+-sv
+rtl/*.sv
+-access rwc 
+-gui
+-covdut mem_test_2
+-coverage U 
+-covoverwrite

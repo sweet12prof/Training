@@ -33,7 +33,11 @@ package class_defs;
 
     endclass
 
-        function randProps::new(input bit [4:0] addr, input bit [7:0] data, virtual interface mem_ifa2 ifa); 
+        function randProps::new(
+            input bit [4:0] addr, 
+            input bit [7:0] data, 
+            virtual interface mem_ifa2 ifa
+        ); 
             this.addr = addr;
             this.data = data;
             this.ifa = ifa;
