@@ -1,0 +1,8 @@
+-sv
+-gui
+-access rwc 
+rtl/*.sv
+-covdut alu_test
+-coverage U
+-covoverwrite
+
