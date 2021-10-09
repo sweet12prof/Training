@@ -79,6 +79,8 @@ covergroup cpa @(posedge clk);
    opXdataXaccum : cross c1_re, c2, c3 {
       ignore_bins b1 = binsof(c1_re.op_accum) || binsof(c1_re.op_data) intersect {LDA};
    }
+
+   //generic_: cross c1, c2, c3;
   
 endgroup
 
