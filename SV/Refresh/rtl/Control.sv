@@ -1,5 +1,9 @@
+timeunit 1ns;
+timeprecision 100ps;
+
 module Control(
-    inter ifa
+    inter ifa,
+    output logic done
 ); 
     import typedefs::*;
     
@@ -19,7 +23,7 @@ module Control(
             Input:
                 NS = Idle; 
             Idle:
-                unique if(ifa.Aeq10)
+                 if(ifa.Aeq10 && !ifa.n_0)
                     NS = Output;
                 else 
                     if(ifa.n_0)
@@ -31,7 +35,7 @@ module Control(
             shift:
                 NS = Idle; 
             Output:
-                NS  = Output;
+                NS  = Input;
         endcase
     end
 
@@ -45,6 +49,8 @@ module Control(
                     ifa.shift_En   = 1'b0;
                     ifa.Load_En    = 1'b1;
                     ifa.out_En     = 1'b0; 
+                    ifa.flop_rst   = 1'b0;
+                    done           = 1'b0;
                 end
             
             Idle: 
@@ -53,6 +59,8 @@ module Control(
                     ifa.shift_En   = 1'b0;
                     ifa.Load_En    = 1'b0;
                     ifa.out_En     = 1'b0; 
+                    ifa.flop_rst   = 1'b0;
+                    done           = 1'b0;
                 end
 
             Inc: 
@@ -61,6 +69,8 @@ module Control(
                     ifa.shift_En   = 1'b0;
                     ifa.Load_En    = 1'b0;
                     ifa.out_En     = 1'b0; 
+                    ifa.flop_rst   = 1'b0;
+                    done           = 1'b0;
                 end 
 
             shift:
@@ -68,7 +78,9 @@ module Control(
                     ifa.count_Load = 1'b0;
                     ifa.shift_En   = 1'b1;
                     ifa.Load_En    = 1'b0;
-                    ifa.out_En     = 1'b0; 
+                    ifa.out_En     = 1'b0;
+                    ifa.flop_rst   = 1'b0; 
+                    done           = 1'b0;
                 end
 
             Output:
@@ -77,6 +89,8 @@ module Control(
                     ifa.shift_En   = 1'b0;
                     ifa.Load_En    = 1'b0;
                     ifa.out_En     = 1'b1; 
+                    ifa.flop_rst   = 1'b1;
+                    done           = 1'b1;
                 end
         endcase
 

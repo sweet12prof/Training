@@ -1,3 +1,5 @@
+timeunit 1ns;
+timeprecision 100ps;
 module comparator(
     input logic [7:0] A, 
     output logic Aeq10 
