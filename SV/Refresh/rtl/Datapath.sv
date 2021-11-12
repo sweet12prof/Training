@@ -42,11 +42,11 @@ module Datapath (
     );
 
     flop SHIFT_OUT (
-                     .clk(ifa.clk), 
-                     .rst(ifa.flop_rst), 
-                     .D(shift_Out[0]), 
-                     .en(ifa.shift_En), 
-                     .Q(ifa.n_0)
+        .clk(ifa.clk), 
+        .rst(ifa.flop_rst), 
+        .D(shift_Out[0]), 
+        .en(ifa.shift_En), 
+        .Q(ifa.n_0)
     );
 
     

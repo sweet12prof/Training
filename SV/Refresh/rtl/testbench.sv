@@ -40,8 +40,20 @@ module testbench ();
         input Out;
     endclocking
 
-    
 
+
+    covergroup cg;
+        In_hi_lo : coverpoint Input{
+            bins lo = {['0 : 8'd127]};
+            bins hi = {[8'd128:$]};
+        }
+            all : coverpoint Input{
+                bins all_[] = {[0:$]};
+            }
+    endgroup:cg
+
+    
+    cg c1 = new();
     always  
     begin
         process::self.srandom(20);
@@ -49,6 +61,7 @@ module testbench ();
         for(int i=1; i<51; i++)
             begin 
                  cb.Input <= rand_gen();
+                 c1.sample();
                 @(cb2);
                 $display("%3.0d\t%b\t%b", i, cb.Input, cb2.Out);
             end

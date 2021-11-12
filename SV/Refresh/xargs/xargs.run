@@ -2,3 +2,6 @@
 -access rwc
 -sv 
 rtl/*.sv
+-covdut testbench
+-coverage U 
+-covoverwrite
