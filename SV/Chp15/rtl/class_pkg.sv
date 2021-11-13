@@ -17,8 +17,8 @@ package class_defs;
     covergroup cpa; 
         c1: coverpoint addr;
         c2: coverpoint data{
-            bins upCase  = {[8'h41 : 8'h5a]}; 
-            bins lowCase = {[8'h61 : 8'h7a]};
+            bins upCase    = {[8'h41 : 8'h5a]}; 
+            bins lowCase   = {[8'h61 : 8'h7a]};
             bins defrest = default;
         }
     endgroup

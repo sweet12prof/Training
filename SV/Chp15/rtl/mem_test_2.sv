@@ -69,11 +69,11 @@ initial begin
     //   $display("");
       
       $display("------With Constraints-------");
-      class_Rand_gen.constraint_mode(1);
+       class_Rand_gen.constraint_mode(1);
 
     // for (int i = 0; i< 32; i++)
      // Write data = address to every address location
-     repeat(400)
+     repeat(100000)
         begin 
            
             j = class_Rand_gen.randomize();

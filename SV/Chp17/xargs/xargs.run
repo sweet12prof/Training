@@ -1,4 +1,0 @@
--sv
--access rwc 
-rtl/*.sv
--gui
